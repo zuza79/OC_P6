@@ -1,3 +1,4 @@
+//authentication user by ID
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
@@ -7,11 +8,9 @@ module.exports = (req, res, next) => {
     const userId = decodedToken.userId;
     if (req.body.userId && req.body.userId !== userId) {
       throw 'Invalid user ID';
-    } else {
-      next();
+    } else {next();
     }
-  } catch {
-    res.status(401).json({
+  } catch {res.status(401).json({
       error: new Error('Invalid request!')
     });
   }
