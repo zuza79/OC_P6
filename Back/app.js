@@ -34,10 +34,17 @@ app.use((req, res) => {
 app.use('/api/auth', userRoutes);
 app.use('/api/sauce', sauceRoutes);
 
+app.use(express.static('public'))
 app.use('/images', express.static(path.join(__dirname, 'images'))); 
 app.use(bodyParser.json());
 
+//security
+//Module pour la sécurite (Somes OWASP Standards)
+const helmet = require("helmet"); //Import de helmet pour la sécurisation contre les injections (des en-têtes HTTP)
+require('dotenv').config();  //Permet de créer un environnement de variables.
+const rateLimit = require("./middleware/rate_limit.js");  //Mesure contre les attaques en Brut force.
 
- 
+app.use(rateLimit);  //écoute maximum des requêtes
+app.use(helmet());  //mise en place protection des en-têtes HTTP grâce à Helmet
 
 module.exports = app;

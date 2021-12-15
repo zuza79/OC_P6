@@ -1,7 +1,7 @@
 {
   "name": "hot-takes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Here are the dependancies you need to install:\r - NodeJS 12.14 or 14.0.\r - Angular CLI 7.0.2.\r - node-sass : make sure to use the corresponding version to NodeJS. For Noe 14.0 for instance, you need node-sass in version 4.14+.",
   "main": "index.html",
   "scripts": {
     "start": "run-script-os",
@@ -13,7 +13,9 @@
   "dependencies": {
     "concurrently": "^5.2.0",
     "http-server": "^0.11.1",
-    "live-server": "^1.2.1",
-    "run-script-os": "^1.0.7"
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "run-script-os": "^1.1.6"
   }
 }
