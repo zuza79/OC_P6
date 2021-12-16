@@ -16,7 +16,7 @@ const normalizePort = val => {
   };
     //si la plateforme propose un port par défaut, elle sera en écoute sur la variable process.env.PORT
     // sinon elle prend le port 3000 par défault
-  const port = normalizePort(process.env.PORT || '3000');
+  const port = normalizePort(process.env.PORT || '8000');
   app.set('port', port);
   
   //errorHandler gère les erreurs, ensuite enregistrée dans le serveur.

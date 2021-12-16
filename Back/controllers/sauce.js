@@ -9,7 +9,7 @@ exports.createSauce = (req, res, next) => {
   delete sauceObject._id;
   const sauce = new Sauce({
     ...sauceObject,
-    // creation new URL creation (server) image created by middleware "multer.js" 
+    // creation new URL creation (server) image created by middleware "multer-config.js" 
     imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`   
   });
   sauce.save().then(() => {res.status(201).json({message: 'Objet enregistré!'});
@@ -41,7 +41,7 @@ exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file ?     // Test - verification to find out if a file exists in the requete 
     {
       ...JSON.parse(req.body.sauce),
-      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  // if there is one image, creation new URL creation (server) image created by middleware "multer.js"
+      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  // if there is one image, creation new URL creation (server) image created by middleware "multer-config.js"
 
     } : { ...req.body };             // if there is NOT image, put requete modify/update the post. 
   Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })

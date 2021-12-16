@@ -2,12 +2,12 @@
 const multer = require('multer');
 const uuid4 = require("uuid").v4;
 
-//mine types accept
+/*mine types accept
 const MIME_TYPES = {       
     'image/jpg': 'jpg',
     'image/jpeg': 'jpg',
     'image/png': 'png'
-  };
+  };*/
 
 //local storage image - modification name file, creation mine type and expected output
 const storage = multer.diskStorage({    
@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, callback) => {
       const name = file.originalname.split(' ').join('_');  
-      const extension = MIME_TYPES[file.mimetype];  
+      //const extension = MIME_TYPES[file.mimetype];  
       callback(null, name + Date.now() + '.' + extension); 
     }
   });
