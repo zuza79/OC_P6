@@ -1,5 +1,6 @@
 //multer
 const multer = require('multer');
+const uuid4 = require("uuid").v4;
 
 //mine types accept
 const MIME_TYPES = {       
