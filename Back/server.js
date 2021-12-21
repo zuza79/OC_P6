@@ -1,8 +1,8 @@
-//importer le package HTTP pour créer un serveur
+//import HTTP 
 const http = require('http');
 const app = require('./app');
 
-//normalizePort renvoie un port valide(numéro/chaîne)
+//normalizePort 
 const normalizePort = val => {
     const port = parseInt(val, 10);
   
@@ -14,12 +14,11 @@ const normalizePort = val => {
     }
     return false;
   };
-    //si la plateforme propose un port par défaut, elle sera en écoute sur la variable process.env.PORT
-    // sinon elle prend le port 3000 par défault
-  const port = normalizePort(process.env.PORT || '3000');
+    //port par defaut 3000, listening process.env.PORT
+   const port = normalizePort(process.env.PORT || '3000');
   app.set('port', port);
   
-  //errorHandler gère les erreurs, ensuite enregistrée dans le serveur.
+  //errorHandler admin errors
   const errorHandler = error => {
     if (error.syscall !== 'listen') {
       throw error;
@@ -41,7 +40,7 @@ const normalizePort = val => {
   };
   
   const server = http.createServer(app);
-  //écouteur d'évènements consigne le port ou le canal nommé sur lequel le serveur s'exécute dans la console.
+  //listening 
   server.on('error', errorHandler);
   server.on('listening', () => {
     const address = server.address();
