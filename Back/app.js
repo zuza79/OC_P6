@@ -10,10 +10,10 @@ require('dotenv').config();
 
 //import routes
 const routesSauce = require('./routes/sauce');   
-const routesUsers = require("./routes/users");   
+const routesUsers = require('./routes/users');   
 
 // connect to MongoDB
-mongoose.connect('mongodb+srv://zuzana79:seddik67@cluster0.pb8xx.mongodb.net/SauceDB?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}.pb8xx.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))

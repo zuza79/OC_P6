@@ -36,7 +36,7 @@ exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file ?     // Test if file exist in requete 
     {
       ...JSON.parse(req.body.sauce),
-      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  // Si il y a une image, On recré un nouvel URL (cote server) de l'image qui a ete cree par le middleware "multer-config.js"
+      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`  
 
     } : { ...req.body };             // if NOT file image, le put requete modify/update the post. 
   Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
