@@ -4,11 +4,12 @@ const User = require('../models/user');
 
 // security
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');  //jwt = jsaonwebtoken
+const jwt = require('jsonwebtoken');  //jwt = jsonwebtoken
 const hash = require('hash.js');
 
 const passwordValidator = require('password-validator');
 
+// parametre of password
 const shemaPassValid = new passwordValidator();
 shemaPassValid
 .is().min(8)

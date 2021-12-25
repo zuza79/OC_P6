@@ -9,12 +9,11 @@ const helmet = require("helmet"); //anti add to header
 const dotenv = require ('dotenv');
 const resul = dotenv.config();
  
-
 //import routes
 const routesSauce = require('./routes/sauce');   
 const routesUsers = require('./routes/users');   
 
-// connect to MongoDB
+//connect to MongoDB
 mongoose.connect(`mongodb+srv://${process.env.MONGO_LOGIN}`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
